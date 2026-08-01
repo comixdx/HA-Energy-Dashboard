@@ -99,10 +99,7 @@ export function renderWidePanel(host: CardHost): TemplateResult {
         </div>
       </div>
 
-      <div
-        style="position:relative;height:168px;display:flex;align-items:flex-end;gap:3px;padding-top:28px"
-        @mouseleave=${() => host.setSel(null)}
-      >
+      <div style="position:relative;height:168px;display:flex;align-items:flex-end;gap:3px;padding-top:28px">
         ${rows.map((r, i) => {
           const dim = sel === null || sel === i ? 1 : 0.42;
           return html`
