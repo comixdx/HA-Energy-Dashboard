@@ -72,10 +72,10 @@ export function renderFlowDiagram(host: CardHost): TemplateResult {
 
       <div style="overflow-x:auto;overflow-y:hidden">
       <div
-        style="display:grid;grid-template-columns:168px 84px 168px 84px 168px;grid-template-rows:150px 84px 168px 84px 150px;justify-content:center;align-items:start;padding:5.6px 0;width:672px;max-width:none;margin:0 auto"
+        style="display:grid;grid-template-columns:25% 12.5% 25% 12.5% 25%;grid-template-rows:132px 74px 148px 74px 132px;justify-content:center;align-items:start;padding:5.6px 0;width:100%;margin:0 auto"
       >
-        <div style="grid-column:3;grid-row:1;align-self:end;display:flex;flex-direction:column-reverse;align-items:center;gap:4px">
-          <svg viewBox="12 14 116 116" style="width:96px;height:96px;overflow:visible">
+        <div style="grid-column:3;grid-row:1;align-self:end;display:flex;flex-direction:column-reverse;align-items:center;gap:4px;min-width:0">
+          <svg viewBox="12 14 116 116" style="width:57%;height:auto;overflow:visible">
             <circle cx="68" cy="70" r="52" fill="${C.solarRing}" stroke="${C.solarStrong}" stroke-width="3"></circle>
             <circle cx="68" cy="48" r="8" fill="none" stroke="${C.solarSoft}" stroke-width="2"></circle>
             <line x1="68" y1="35" x2="68" y2="31" stroke="${C.solarSoft}" stroke-width="1.8" stroke-linecap="round"></line>
@@ -95,14 +95,14 @@ export function renderFlowDiagram(host: CardHost): TemplateResult {
           <div style="font-size:12px;font-weight:500;color:${C.solarSoft}">Solar PV</div>
         </div>
 
-        <div style="grid-column:3;grid-row:2;height:84px;position:relative;display:flex;justify-content:center">
+        <div style="grid-column:3;grid-row:2;height:74px;position:relative;display:flex;justify-content:center">
           <div style="width:2px;height:100%;background:linear-gradient(180deg, transparent, ${pvLeg.line} 22%, ${pvLeg.line} 78%, transparent)"></div>
           ${legDots(pvLeg, "v")}
           <div style="position:absolute;left:50%;top:50%;margin-left:14px;transform:translateY(-50%);font-size:11px;color:${C.neutral500};font-variant-numeric:tabular-nums;white-space:nowrap">${pvLeg.tag}</div>
         </div>
 
-        <div style="grid-column:1;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px">
-          <svg viewBox="148 14 116 116" style="width:96px;height:96px;margin-top:6px;overflow:visible">
+        <div style="grid-column:1;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
+          <svg viewBox="148 14 116 116" style="width:57%;height:auto;margin-top:6px;overflow:visible">
             <circle cx="204" cy="70" r="52" fill="${C.gridRing}" stroke="${C.gridStrong}" stroke-width="3"></circle>
             <g fill="none" stroke="${C.gridSoft}" stroke-width="2" stroke-linecap="round">
               <line x1="192" y1="94" x2="192" y2="60"></line>
@@ -126,14 +126,14 @@ export function renderFlowDiagram(host: CardHost): TemplateResult {
           <div style="font-size:11px;color:${C.neutral600}">${gridSub}</div>
         </div>
 
-        <div style="grid-column:2;grid-row:3;height:108px;position:relative;display:flex;align-items:center">
+        <div style="grid-column:2;grid-row:3;height:95px;position:relative;display:flex;align-items:center">
           <div style="height:2px;width:100%;background:linear-gradient(90deg, transparent, ${gridLeg.line} 22%, ${gridLeg.line} 78%, transparent)"></div>
           ${legDots(gridLeg, "h")}
           <div style="position:absolute;left:50%;top:50%;margin-top:11px;transform:translateX(-50%);font-size:11px;color:${C.neutral500};font-variant-numeric:tabular-nums;white-space:nowrap">${gridLeg.tag}</div>
         </div>
 
-        <div style="grid-column:3;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px">
-          <svg viewBox="278 8 132 132" style="width:108px;height:108px;overflow:visible">
+        <div style="grid-column:3;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
+          <svg viewBox="278 8 132 132" style="width:64%;height:auto;overflow:visible">
             <circle cx="340" cy="70" r="58" fill="${C.inverterRing}" stroke="${C.inverterStrong}" stroke-width="3"></circle>
             <rect x="308" y="54" width="64" height="34" rx="6" fill="none" stroke="${C.inverterSoft}" stroke-width="2"></rect>
             <polyline points="315,80 315,64 323,64 323,80 329,80" fill="none" stroke="${C.inverterSoft}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
@@ -147,14 +147,14 @@ export function renderFlowDiagram(host: CardHost): TemplateResult {
           <div style="font-size:11px;color:${C.neutral600}">throughput</div>
         </div>
 
-        <div style="grid-column:4;grid-row:3;height:108px;position:relative;display:flex;align-items:center">
+        <div style="grid-column:4;grid-row:3;height:95px;position:relative;display:flex;align-items:center">
           <div style="height:2px;width:100%;background:linear-gradient(90deg, transparent, ${loadLeg.line} 22%, ${loadLeg.line} 78%, transparent)"></div>
           ${legDots(loadLeg, "h")}
           <div style="position:absolute;left:50%;top:50%;margin-top:11px;transform:translateX(-50%);font-size:11px;color:${C.neutral500};font-variant-numeric:tabular-nums;white-space:nowrap">${loadLeg.tag}</div>
         </div>
 
-        <div style="grid-column:5;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px">
-          <svg viewBox="420 14 116 116" style="width:96px;height:96px;margin-top:6px;overflow:visible">
+        <div style="grid-column:5;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
+          <svg viewBox="420 14 116 116" style="width:57%;height:auto;margin-top:6px;overflow:visible">
             <circle cx="476" cy="70" r="52" fill="${C.loadRing}" stroke="${C.loadStrong}" stroke-width="3"></circle>
             <polygon points="476,46 500,60 500,90 452,90 452,60" fill="none" stroke="${C.loadSoft}" stroke-width="2" stroke-linejoin="round"></polygon>
             <rect x="468" y="72" width="16" height="18" rx="2" fill="none" stroke="${C.loadSoft}" stroke-width="1.8"></rect>
@@ -172,14 +172,14 @@ export function renderFlowDiagram(host: CardHost): TemplateResult {
           <div style="font-size:11px;color:${C.neutral600}">current draw</div>
         </div>
 
-        <div style="grid-column:3;grid-row:4;height:84px;position:relative;display:flex;justify-content:center">
+        <div style="grid-column:3;grid-row:4;height:74px;position:relative;display:flex;justify-content:center">
           <div style="width:2px;height:100%;background:linear-gradient(180deg, transparent, ${battLeg.line} 22%, ${battLeg.line} 78%, transparent)"></div>
           ${legDots(battLeg, "v")}
           <div style="position:absolute;left:50%;top:50%;margin-left:14px;transform:translateY(-50%);font-size:11px;color:${C.neutral500};font-variant-numeric:tabular-nums;white-space:nowrap">${battLeg.tag}</div>
         </div>
 
-        <div style="grid-column:3;grid-row:5;display:flex;flex-direction:column;align-items:center;gap:4px">
-          <svg viewBox="556 14 116 116" style="width:96px;height:96px;overflow:visible">
+        <div style="grid-column:3;grid-row:5;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
+          <svg viewBox="556 14 116 116" style="width:57%;height:auto;overflow:visible">
             <circle cx="612" cy="70" r="52" fill="${C.batteryRing}" stroke="${C.batteryStrong}" stroke-width="3"></circle>
             <rect x="588" y="60" width="38" height="22" rx="4" fill="none" stroke="${C.batterySoft}" stroke-width="2"></rect>
             <rect x="626" y="66" width="6" height="10" rx="2.5" fill="none" stroke="${C.batterySoft}" stroke-width="1.8"></rect>
@@ -194,7 +194,7 @@ export function renderFlowDiagram(host: CardHost): TemplateResult {
             <div style="font-size:12px;font-weight:500;color:#f4c0d1">Battery</div>
             <div style="font-size:12px;color:${C.batterySoft};font-variant-numeric:tabular-nums">${Math.round(soc)}%</div>
           </div>
-          <div style="width:108px;height:4px;border-radius:2px;background:${C.neutral800};overflow:hidden">
+          <div style="width:64%;height:4px;border-radius:2px;background:${C.neutral800};overflow:hidden">
             <div style="height:100%;border-radius:2px;background:${C.batteryStrong};width:${soc}%"></div>
           </div>
           <div style="display:flex;align-items:baseline;gap:5.6px">

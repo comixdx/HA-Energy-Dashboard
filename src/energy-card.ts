@@ -11,7 +11,7 @@ import { fetchEnergyChange, priorRangeSpec, rangeSpec, sumBuckets, buildSeries }
 import { EnergyCardConfig, HassLike, Range } from "./types";
 import "./editor";
 
-const WIDTH: Record<string, number> = { "1a": 720, "1b": 340, "1c": 280, "2a": 720 };
+const WIDTH: Record<string, number> = { "1a": 720, "1b": 340, "1c": 280, "2a": 660 };
 
 @customElement("energy-card")
 export class EnergyCard extends LitElement implements CardHost {

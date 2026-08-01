@@ -4,12 +4,12 @@ function e(e,t,i,r){var s,o=arguments.length,n=o<3?t:null===r?r=Object.getOwnPro
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const t=globalThis,i=t.ShadowRoot&&(void 0===t.ShadyCSS||t.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,r=Symbol(),s=new WeakMap;let o=class{constructor(e,t,i){if(this._$cssResult$=!0,i!==r)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e,this.t=t}get styleSheet(){let e=this.o;const t=this.t;if(i&&void 0===e){const i=void 0!==t&&1===t.length;i&&(e=s.get(t)),void 0===e&&((this.o=e=new CSSStyleSheet).replaceSync(this.cssText),i&&s.set(t,e))}return e}toString(){return this.cssText}};const n=(e,...t)=>{const i=1===e.length?e[0]:t.reduce((t,i,r)=>t+(e=>{if(!0===e._$cssResult$)return e.cssText;if("number"==typeof e)return e;throw Error("Value passed to 'css' function must be a 'css' function result: "+e+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(i)+e[r+1],e[0]);return new o(i,e,r)},a=i?e=>e:e=>e instanceof CSSStyleSheet?(e=>{let t="";for(const i of e.cssRules)t+=i.cssText;return(e=>new o("string"==typeof e?e:e+"",void 0,r))(t)})(e):e,{is:l,defineProperty:d,getOwnPropertyDescriptor:c,getOwnPropertyNames:p,getOwnPropertySymbols:h,getPrototypeOf:g}=Object,f=globalThis,y=f.trustedTypes,u=y?y.emptyScript:"",x=f.reactiveElementPolyfillSupport,v=(e,t)=>e,$={toAttribute(e,t){switch(t){case Boolean:e=e?u:null;break;case Object:case Array:e=null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){let i=e;switch(t){case Boolean:i=null!==e;break;case Number:i=null===e?null:Number(e);break;case Object:case Array:try{i=JSON.parse(e)}catch(e){i=null}}return i}},m=(e,t)=>!l(e,t),w={attribute:!0,type:String,converter:$,reflect:!1,useDefault:!1,hasChanged:m};
+const t=globalThis,i=t.ShadowRoot&&(void 0===t.ShadyCSS||t.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,r=Symbol(),s=new WeakMap;let o=class{constructor(e,t,i){if(this._$cssResult$=!0,i!==r)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e,this.t=t}get styleSheet(){let e=this.o;const t=this.t;if(i&&void 0===e){const i=void 0!==t&&1===t.length;i&&(e=s.get(t)),void 0===e&&((this.o=e=new CSSStyleSheet).replaceSync(this.cssText),i&&s.set(t,e))}return e}toString(){return this.cssText}};const n=(e,...t)=>{const i=1===e.length?e[0]:t.reduce((t,i,r)=>t+(e=>{if(!0===e._$cssResult$)return e.cssText;if("number"==typeof e)return e;throw Error("Value passed to 'css' function must be a 'css' function result: "+e+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(i)+e[r+1],e[0]);return new o(i,e,r)},a=i?e=>e:e=>e instanceof CSSStyleSheet?(e=>{let t="";for(const i of e.cssRules)t+=i.cssText;return(e=>new o("string"==typeof e?e:e+"",void 0,r))(t)})(e):e,{is:l,defineProperty:d,getOwnPropertyDescriptor:c,getOwnPropertyNames:p,getOwnPropertySymbols:h,getPrototypeOf:g}=Object,f=globalThis,y=f.trustedTypes,u=y?y.emptyScript:"",v=f.reactiveElementPolyfillSupport,x=(e,t)=>e,$={toAttribute(e,t){switch(t){case Boolean:e=e?u:null;break;case Object:case Array:e=null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){let i=e;switch(t){case Boolean:i=null!==e;break;case Number:i=null===e?null:Number(e);break;case Object:case Array:try{i=JSON.parse(e)}catch(e){i=null}}return i}},m=(e,t)=>!l(e,t),w={attribute:!0,type:String,converter:$,reflect:!1,useDefault:!1,hasChanged:m};
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */Symbol.metadata??=Symbol("metadata"),f.litPropertyMetadata??=new WeakMap;let b=class extends HTMLElement{static addInitializer(e){this._$Ei(),(this.l??=[]).push(e)}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(e,t=w){if(t.state&&(t.attribute=!1),this._$Ei(),this.prototype.hasOwnProperty(e)&&((t=Object.create(t)).wrapped=!0),this.elementProperties.set(e,t),!t.noAccessor){const i=Symbol(),r=this.getPropertyDescriptor(e,i,t);void 0!==r&&d(this.prototype,e,r)}}static getPropertyDescriptor(e,t,i){const{get:r,set:s}=c(this.prototype,e)??{get(){return this[t]},set(e){this[t]=e}};return{get:r,set(t){const o=r?.call(this);s?.call(this,t),this.requestUpdate(e,o,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this.elementProperties.get(e)??w}static _$Ei(){if(this.hasOwnProperty(v("elementProperties")))return;const e=g(this);e.finalize(),void 0!==e.l&&(this.l=[...e.l]),this.elementProperties=new Map(e.elementProperties)}static finalize(){if(this.hasOwnProperty(v("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(v("properties"))){const e=this.properties,t=[...p(e),...h(e)];for(const i of t)this.createProperty(i,e[i])}const e=this[Symbol.metadata];if(null!==e){const t=litPropertyMetadata.get(e);if(void 0!==t)for(const[e,i]of t)this.elementProperties.set(e,i)}this._$Eh=new Map;for(const[e,t]of this.elementProperties){const i=this._$Eu(e,t);void 0!==i&&this._$Eh.set(i,e)}this.elementStyles=this.finalizeStyles(this.styles)}static finalizeStyles(e){const t=[];if(Array.isArray(e)){const i=new Set(e.flat(1/0).reverse());for(const e of i)t.unshift(a(e))}else void 0!==e&&t.push(a(e));return t}static _$Eu(e,t){const i=t.attribute;return!1===i?void 0:"string"==typeof i?i:"string"==typeof e?e.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev()}_$Ev(){this._$ES=new Promise(e=>this.enableUpdating=e),this._$AL=new Map,this._$E_(),this.requestUpdate(),this.constructor.l?.forEach(e=>e(this))}addController(e){(this._$EO??=new Set).add(e),void 0!==this.renderRoot&&this.isConnected&&e.hostConnected?.()}removeController(e){this._$EO?.delete(e)}_$E_(){const e=new Map,t=this.constructor.elementProperties;for(const i of t.keys())this.hasOwnProperty(i)&&(e.set(i,this[i]),delete this[i]);e.size>0&&(this._$Ep=e)}createRenderRoot(){const e=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return((e,r)=>{if(i)e.adoptedStyleSheets=r.map(e=>e instanceof CSSStyleSheet?e:e.styleSheet);else for(const i of r){const r=document.createElement("style"),s=t.litNonce;void 0!==s&&r.setAttribute("nonce",s),r.textContent=i.cssText,e.appendChild(r)}})(e,this.constructor.elementStyles),e}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$EO?.forEach(e=>e.hostConnected?.())}enableUpdating(e){}disconnectedCallback(){this._$EO?.forEach(e=>e.hostDisconnected?.())}attributeChangedCallback(e,t,i){this._$AK(e,i)}_$ET(e,t){const i=this.constructor.elementProperties.get(e),r=this.constructor._$Eu(e,i);if(void 0!==r&&!0===i.reflect){const s=(void 0!==i.converter?.toAttribute?i.converter:$).toAttribute(t,i.type);this._$Em=e,null==s?this.removeAttribute(r):this.setAttribute(r,s),this._$Em=null}}_$AK(e,t){const i=this.constructor,r=i._$Eh.get(e);if(void 0!==r&&this._$Em!==r){const e=i.getPropertyOptions(r),s="function"==typeof e.converter?{fromAttribute:e.converter}:void 0!==e.converter?.fromAttribute?e.converter:$;this._$Em=r;const o=s.fromAttribute(t,e.type);this[r]=o??this._$Ej?.get(r)??o,this._$Em=null}}requestUpdate(e,t,i,r=!1,s){if(void 0!==e){const o=this.constructor;if(!1===r&&(s=this[e]),i??=o.getPropertyOptions(e),!((i.hasChanged??m)(s,t)||i.useDefault&&i.reflect&&s===this._$Ej?.get(e)&&!this.hasAttribute(o._$Eu(e,i))))return;this.C(e,t,i)}!1===this.isUpdatePending&&(this._$ES=this._$EP())}C(e,t,{useDefault:i,reflect:r,wrapped:s},o){i&&!(this._$Ej??=new Map).has(e)&&(this._$Ej.set(e,o??t??this[e]),!0!==s||void 0!==o)||(this._$AL.has(e)||(this.hasUpdated||i||(t=void 0),this._$AL.set(e,t)),!0===r&&this._$Em!==e&&(this._$Eq??=new Set).add(e))}async _$EP(){this.isUpdatePending=!0;try{await this._$ES}catch(e){Promise.reject(e)}const e=this.scheduleUpdate();return null!=e&&await e,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this.renderRoot??=this.createRenderRoot(),this._$Ep){for(const[e,t]of this._$Ep)this[e]=t;this._$Ep=void 0}const e=this.constructor.elementProperties;if(e.size>0)for(const[t,i]of e){const{wrapped:e}=i,r=this[t];!0!==e||this._$AL.has(t)||void 0===r||this.C(t,void 0,i,r)}}let e=!1;const t=this._$AL;try{e=this.shouldUpdate(t),e?(this.willUpdate(t),this._$EO?.forEach(e=>e.hostUpdate?.()),this.update(t)):this._$EM()}catch(t){throw e=!1,this._$EM(),t}e&&this._$AE(t)}willUpdate(e){}_$AE(e){this._$EO?.forEach(e=>e.hostUpdated?.()),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(e)),this.updated(e)}_$EM(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$ES}shouldUpdate(e){return!0}update(e){this._$Eq&&=this._$Eq.forEach(e=>this._$ET(e,this[e])),this._$EM()}updated(e){}firstUpdated(e){}};b.elementStyles=[],b.shadowRootOptions={mode:"open"},b[v("elementProperties")]=new Map,b[v("finalized")]=new Map,x?.({ReactiveElement:b}),(f.reactiveElementVersions??=[]).push("2.1.2");
+ */Symbol.metadata??=Symbol("metadata"),f.litPropertyMetadata??=new WeakMap;let b=class extends HTMLElement{static addInitializer(e){this._$Ei(),(this.l??=[]).push(e)}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(e,t=w){if(t.state&&(t.attribute=!1),this._$Ei(),this.prototype.hasOwnProperty(e)&&((t=Object.create(t)).wrapped=!0),this.elementProperties.set(e,t),!t.noAccessor){const i=Symbol(),r=this.getPropertyDescriptor(e,i,t);void 0!==r&&d(this.prototype,e,r)}}static getPropertyDescriptor(e,t,i){const{get:r,set:s}=c(this.prototype,e)??{get(){return this[t]},set(e){this[t]=e}};return{get:r,set(t){const o=r?.call(this);s?.call(this,t),this.requestUpdate(e,o,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this.elementProperties.get(e)??w}static _$Ei(){if(this.hasOwnProperty(x("elementProperties")))return;const e=g(this);e.finalize(),void 0!==e.l&&(this.l=[...e.l]),this.elementProperties=new Map(e.elementProperties)}static finalize(){if(this.hasOwnProperty(x("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(x("properties"))){const e=this.properties,t=[...p(e),...h(e)];for(const i of t)this.createProperty(i,e[i])}const e=this[Symbol.metadata];if(null!==e){const t=litPropertyMetadata.get(e);if(void 0!==t)for(const[e,i]of t)this.elementProperties.set(e,i)}this._$Eh=new Map;for(const[e,t]of this.elementProperties){const i=this._$Eu(e,t);void 0!==i&&this._$Eh.set(i,e)}this.elementStyles=this.finalizeStyles(this.styles)}static finalizeStyles(e){const t=[];if(Array.isArray(e)){const i=new Set(e.flat(1/0).reverse());for(const e of i)t.unshift(a(e))}else void 0!==e&&t.push(a(e));return t}static _$Eu(e,t){const i=t.attribute;return!1===i?void 0:"string"==typeof i?i:"string"==typeof e?e.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev()}_$Ev(){this._$ES=new Promise(e=>this.enableUpdating=e),this._$AL=new Map,this._$E_(),this.requestUpdate(),this.constructor.l?.forEach(e=>e(this))}addController(e){(this._$EO??=new Set).add(e),void 0!==this.renderRoot&&this.isConnected&&e.hostConnected?.()}removeController(e){this._$EO?.delete(e)}_$E_(){const e=new Map,t=this.constructor.elementProperties;for(const i of t.keys())this.hasOwnProperty(i)&&(e.set(i,this[i]),delete this[i]);e.size>0&&(this._$Ep=e)}createRenderRoot(){const e=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return((e,r)=>{if(i)e.adoptedStyleSheets=r.map(e=>e instanceof CSSStyleSheet?e:e.styleSheet);else for(const i of r){const r=document.createElement("style"),s=t.litNonce;void 0!==s&&r.setAttribute("nonce",s),r.textContent=i.cssText,e.appendChild(r)}})(e,this.constructor.elementStyles),e}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$EO?.forEach(e=>e.hostConnected?.())}enableUpdating(e){}disconnectedCallback(){this._$EO?.forEach(e=>e.hostDisconnected?.())}attributeChangedCallback(e,t,i){this._$AK(e,i)}_$ET(e,t){const i=this.constructor.elementProperties.get(e),r=this.constructor._$Eu(e,i);if(void 0!==r&&!0===i.reflect){const s=(void 0!==i.converter?.toAttribute?i.converter:$).toAttribute(t,i.type);this._$Em=e,null==s?this.removeAttribute(r):this.setAttribute(r,s),this._$Em=null}}_$AK(e,t){const i=this.constructor,r=i._$Eh.get(e);if(void 0!==r&&this._$Em!==r){const e=i.getPropertyOptions(r),s="function"==typeof e.converter?{fromAttribute:e.converter}:void 0!==e.converter?.fromAttribute?e.converter:$;this._$Em=r;const o=s.fromAttribute(t,e.type);this[r]=o??this._$Ej?.get(r)??o,this._$Em=null}}requestUpdate(e,t,i,r=!1,s){if(void 0!==e){const o=this.constructor;if(!1===r&&(s=this[e]),i??=o.getPropertyOptions(e),!((i.hasChanged??m)(s,t)||i.useDefault&&i.reflect&&s===this._$Ej?.get(e)&&!this.hasAttribute(o._$Eu(e,i))))return;this.C(e,t,i)}!1===this.isUpdatePending&&(this._$ES=this._$EP())}C(e,t,{useDefault:i,reflect:r,wrapped:s},o){i&&!(this._$Ej??=new Map).has(e)&&(this._$Ej.set(e,o??t??this[e]),!0!==s||void 0!==o)||(this._$AL.has(e)||(this.hasUpdated||i||(t=void 0),this._$AL.set(e,t)),!0===r&&this._$Em!==e&&(this._$Eq??=new Set).add(e))}async _$EP(){this.isUpdatePending=!0;try{await this._$ES}catch(e){Promise.reject(e)}const e=this.scheduleUpdate();return null!=e&&await e,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this.renderRoot??=this.createRenderRoot(),this._$Ep){for(const[e,t]of this._$Ep)this[e]=t;this._$Ep=void 0}const e=this.constructor.elementProperties;if(e.size>0)for(const[t,i]of e){const{wrapped:e}=i,r=this[t];!0!==e||this._$AL.has(t)||void 0===r||this.C(t,void 0,i,r)}}let e=!1;const t=this._$AL;try{e=this.shouldUpdate(t),e?(this.willUpdate(t),this._$EO?.forEach(e=>e.hostUpdate?.()),this.update(t)):this._$EM()}catch(t){throw e=!1,this._$EM(),t}e&&this._$AE(t)}willUpdate(e){}_$AE(e){this._$EO?.forEach(e=>e.hostUpdated?.()),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(e)),this.updated(e)}_$EM(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$ES}shouldUpdate(e){return!0}update(e){this._$Eq&&=this._$Eq.forEach(e=>this._$ET(e,this[e])),this._$EM()}updated(e){}firstUpdated(e){}};b.elementStyles=[],b.shadowRootOptions={mode:"open"},b[x("elementProperties")]=new Map,b[x("finalized")]=new Map,v?.({ReactiveElement:b}),(f.reactiveElementVersions??=[]).push("2.1.2");
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -36,7 +36,7 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */function ge(e){return he({...e,state:!0,attribute:!1})}const fe="#e9e9ed",ye="#9184d9",ue="rgba(233,233,237,0.16)",xe="#f3f5fe",ve="#b2b6ca",$e="#9397ab",me="#75798c",we="#595d6c",be="#3f424d",_e="#d2cefd",ke="#5d5294",Ae="#d1a05e",Se="#ef9f27",Ee="#fac775",ze="#412402",Ce="#378add",Me="#85b7eb",De="#042c53",Pe="#1d9e75",Re="#5dcaa5",Te="#04342c",Ue="#639922",He="#97c459",Oe="#173404",Ne="#d4537e",je="#ed93b1",Be="#4b1528";function Ie(e,t){if(!t)return;const i=e.states[t];if(!i)return;const r=Number(i.state);return Number.isFinite(r)?r:void 0}function We(e){return e.import_rate??.28}function Le(e){return e.export_rate??.155}function Fe(e,t){return void 0===t?0:"kW"===e.power_unit?t:t/1e3}function Ve(e){return`${e.toFixed(2)} kW`}function Ye(e){return`${e.toFixed(1)} kWh`}function qe(e,t){return`${function(e){return e.currency??"$"}(e)}${t.toFixed(2)}`}function Ge(e){return`${Math.round(e)}%`}const Ke={today:"today",week:"this week",month:"this month"},Xe={today:"yesterday",week:"last week",month:"last month"},Qe=["today","week","month"];function Je(e,t){const i=e.entities,r=Math.max(0,Fe(e,Ie(t,i.pv_power))||0),s=Fe(e,Ie(t,i.grid_power))||0,o=Fe(e,Ie(t,i.battery_power))||0,n=Ie(t,i.battery_soc),a=Math.max(0,s),l=Math.max(0,-s),d=Math.max(0,o),c=Math.max(0,-o),p=Ie(t,i.load_power),h=r+c+a;return{pv:r,load:void 0!==p?Math.max(0,Fe(e,p)||0):Math.max(0,r+c+a-d-l),soc:n,imp:a,exp:l,charge:d,discharge:c,supply:h,selfSufficiencyNow:h>0?(h-a)/h*100:void 0}}function Ze(e,t){return t>0?`${Math.round(e/t*100)}%`:"0%"}const et=226.2;function tt(e){return Math.max(.8,2.6-.4*e).toFixed(2)}function it(e,t,i,r){return e<=.02?{line:be,dot:"transparent",anim:"idle 3s linear infinite",tag:"idle"}:{line:i,dot:i,anim:`${t} ${tt(e)}s linear infinite`,tag:`${Ve(e)} · ${Ze(e,r)}`}}function rt(e,t){const i="v"===t?"position:absolute;left:50%;top:0;margin-left:-3.5px;width:7px;height:7px;border-radius:50%":"position:absolute;top:50%;left:0;margin-top:-3.5px;width:7px;height:7px;border-radius:50%";return L`
+ */function ge(e){return he({...e,state:!0,attribute:!1})}const fe="#e9e9ed",ye="#9184d9",ue="rgba(233,233,237,0.16)",ve="#f3f5fe",xe="#b2b6ca",$e="#9397ab",me="#75798c",we="#595d6c",be="#3f424d",_e="#d2cefd",ke="#5d5294",Ae="#d1a05e",Se="#ef9f27",Ee="#fac775",ze="#412402",Ce="#378add",Me="#85b7eb",De="#042c53",Pe="#1d9e75",Re="#5dcaa5",Te="#04342c",Ue="#639922",He="#97c459",Oe="#173404",Ne="#d4537e",je="#ed93b1",Be="#4b1528";function Ie(e,t){if(!t)return;const i=e.states[t];if(!i)return;const r=Number(i.state);return Number.isFinite(r)?r:void 0}function We(e){return e.import_rate??.28}function Le(e){return e.export_rate??.155}function Fe(e,t){return void 0===t?0:"kW"===e.power_unit?t:t/1e3}function Ve(e){return`${e.toFixed(2)} kW`}function Ye(e){return`${e.toFixed(1)} kWh`}function qe(e,t){return`${function(e){return e.currency??"$"}(e)}${t.toFixed(2)}`}function Ge(e){return`${Math.round(e)}%`}const Ke={today:"today",week:"this week",month:"this month"},Xe={today:"yesterday",week:"last week",month:"last month"},Qe=["today","week","month"];function Je(e,t){const i=e.entities,r=Math.max(0,Fe(e,Ie(t,i.pv_power))||0),s=Fe(e,Ie(t,i.grid_power))||0,o=Fe(e,Ie(t,i.battery_power))||0,n=Ie(t,i.battery_soc),a=Math.max(0,s),l=Math.max(0,-s),d=Math.max(0,o),c=Math.max(0,-o),p=Ie(t,i.load_power),h=r+c+a;return{pv:r,load:void 0!==p?Math.max(0,Fe(e,p)||0):Math.max(0,r+c+a-d-l),soc:n,imp:a,exp:l,charge:d,discharge:c,supply:h,selfSufficiencyNow:h>0?(h-a)/h*100:void 0}}function Ze(e,t){return t>0?`${Math.round(e/t*100)}%`:"0%"}const et=226.2;function tt(e){return Math.max(.8,2.6-.4*e).toFixed(2)}function it(e,t,i,r){return e<=.02?{line:be,dot:"transparent",anim:"idle 3s linear infinite",tag:"idle"}:{line:i,dot:i,anim:`${t} ${tt(e)}s linear infinite`,tag:`${Ve(e)} · ${Ze(e,r)}`}}function rt(e,t){const i="v"===t?"position:absolute;left:50%;top:0;margin-left:-3.5px;width:7px;height:7px;border-radius:50%":"position:absolute;top:50%;left:0;margin-top:-3.5px;width:7px;height:7px;border-radius:50%";return L`
     <div style="${i};background:${e.dot};animation:${e.anim}"></div>
     <div style="${i};background:${e.dot};animation:${e.anim};animation-delay:-0.55s"></div>
     <div style="${i};background:${e.dot};animation:${e.anim};animation-delay:-1.1s"></div>
@@ -145,7 +145,7 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
       opacity: 0.7;
       margin-bottom: 8px;
     }
-  `,e([he({attribute:!1})],pt.prototype,"hass",void 0),e([ge()],pt.prototype,"_config",void 0),pt=e([de("energy-card-editor")],pt);const ht={"1a":720,"1b":340,"1c":280,"2a":720};let gt=class extends ae{constructor(){super(...arguments),this.range="today",this.mode="cost",this.sel=null,this.showDevices=!1,this.loading=!1,this._dataByRange={},this._fetchToken=0}get config(){return this._config}get rangeData(){return this._dataByRange[this.range]}static getStubConfig(){return{variant:"1a",entities:{},import_rate:.28,export_rate:.155}}static getConfigElement(){return document.createElement("energy-card-editor")}setConfig(e){if(!e?.variant)throw new Error("energy-card: `variant` is required (one of 1a, 1b, 1c, 2a)");this._config={...e,entities:e.entities??{}},this._dataByRange={},this.sel=null,this.showDevices=!1,this.range="today",this._loadRange(this.range)}getCardSize(){return"2a"===this._config?.variant?6:"1a"===this._config?.variant?5:3}connectedCallback(){super.connectedCallback(),this._config&&this._loadRange(this.range),this._refreshTimer=setInterval(()=>this._loadRange(this.range,!0),3e5)}disconnectedCallback(){super.disconnectedCallback(),this._refreshTimer&&clearInterval(this._refreshTimer)}updated(e){e.has("hass")&&this.hass&&this._config&&!this._dataByRange[this.range]&&this._loadRange(this.range)}setRange(e){this.range!==e&&(this.range=e,this.sel=null,this._loadRange(e))}setMode(e){this.mode=e}setSel(e){this.sel=e}toggleDevices(){this.showDevices=!this.showDevices}async _loadRange(e,t=!1){if(!this.hass||!this._config)return;if(!t&&this._dataByRange[e])return;const i=this._config.entities,r=function(e,t=new Date){if("today"===e){const e=new Date(t);e.setHours(0,0,0,0);const i=new Date(e);return i.setDate(i.getDate()+1),{start:e,end:i,period:"hour"}}if("week"===e){const e=(t.getDay()+6)%7,i=new Date(t);i.setHours(0,0,0,0),i.setDate(i.getDate()-e);const r=new Date(i);return r.setDate(r.getDate()+7),{start:i,end:r,period:"day"}}return{start:new Date(t.getFullYear(),t.getMonth(),1),end:new Date(t.getFullYear(),t.getMonth()+1,1),period:"day"}}(e),s=function(e){const t=e.end.getTime()-e.start.getTime();return{start:new Date(e.start.getTime()-t),end:new Date(e.start.getTime()),period:e.period}}(r),o=[i.solar_energy,i.grid_import_energy,i.grid_export_energy],n=++this._fetchToken;this.loading=!0;const[a,l]=await Promise.all([st(this.hass,o,r),st(this.hass,o,s)]);if(n!==this._fetchToken)return;const d=function(e,t,i,r,s,o="en-US"){const n=new Map;for(const e of i){const i=new Date(e.start);n.set(nt(i,t.period),(n.get(nt(i,t.period))||0)+e.value)}const a=new Map;for(const e of r){const i=new Date(e.start);a.set(nt(i,t.period),(a.get(nt(i,t.period))||0)+e.value)}const l=new Map;for(const e of s){const i=new Date(e.start);l.set(nt(i,t.period),(l.get(nt(i,t.period))||0)+e.value)}const d=[],c=new Date(t.start);for(;c<t.end;){const i=nt(c,t.period),r=n.get(i)||0,s=l.get(i)||0,p=Math.max(0,r-s),h=a.get(i)||0;d.push({label:at(e,c,o),solar:p,grid:h}),"hour"===t.period?c.setHours(c.getHours()+1):c.setDate(c.getDate()+1)}return d}(e,r,i.solar_energy&&a[i.solar_energy]||[],i.grid_import_energy&&a[i.grid_import_energy]||[],i.grid_export_energy&&a[i.grid_export_energy]||[],this.hass.locale?.language),c=ot(i.solar_energy?a[i.solar_energy]:void 0),p=ot(i.grid_import_energy?a[i.grid_import_energy]:void 0),h=ot(i.grid_export_energy?a[i.grid_export_energy]:void 0),g=Math.max(0,c-h),f=ot(i.solar_energy?l[i.solar_energy]:void 0),y=ot(i.grid_import_energy?l[i.grid_import_energy]:void 0),u=ot(i.grid_export_energy?l[i.grid_export_energy]:void 0),x={rows:d,solarUsed:g,gridImported:p,exported:h,totalKwh:g+p,prevTotalKwh:Math.max(0,f-u)+y};if(this._config.devices?.length){const e=this._config.devices.map(e=>e.entity),t=await st(this.hass,e,r);if(n!==this._fetchToken)return;x.devices=this._config.devices.map(e=>({name:e.name,color:e.color,entity:e.entity,kwh:ot(t[e.entity])}))}this._dataByRange={...this._dataByRange,[e]:x},this.loading=!1}render(){if(!this._config)return L``;const e=this._config.variant;let t;switch(e){case"1a":t=function(e){const t=e.rangeData,i=e.mode,r=t?.rows??[],s=Math.max(1e-6,...r.map(e=>e.solar+e.grid)),o=We(e.config),n=Le(e.config),a=t?.gridImported??0,l=t?.solarUsed??0,d=t?.exported??0,c=t?.totalKwh??0,p=t?.prevTotalKwh??0,h=a*o,g=p>0?Math.round((c-p)/p*100):0,f=c>0?Math.round(l/c*100):0,y=e.sel,u=null!==y?r[y]:void 0,x=u?{label:"today"===e.range?`${u.label}:00`:u.label,headline:"cost"===i?`${qe(e.config,u.grid*o)} from grid`:`${Ye(u.solar+u.grid)} used`,detail:`${Ye(u.solar)} solar · ${Ye(u.grid)} grid`}:null,v=null!==y&&r.length?(y+.5)/r.length*100+"%":"50%",$=t=>{if(!r.length)return"";const i=r[t].label;return"today"===e.range?`${i}:00`:i},m=t?.devices??[],w=Math.max(1e-6,...m.map(e=>e.kwh));return L`
+  `,e([he({attribute:!1})],pt.prototype,"hass",void 0),e([ge()],pt.prototype,"_config",void 0),pt=e([de("energy-card-editor")],pt);const ht={"1a":720,"1b":340,"1c":280,"2a":660};let gt=class extends ae{constructor(){super(...arguments),this.range="today",this.mode="cost",this.sel=null,this.showDevices=!1,this.loading=!1,this._dataByRange={},this._fetchToken=0}get config(){return this._config}get rangeData(){return this._dataByRange[this.range]}static getStubConfig(){return{variant:"1a",entities:{},import_rate:.28,export_rate:.155}}static getConfigElement(){return document.createElement("energy-card-editor")}setConfig(e){if(!e?.variant)throw new Error("energy-card: `variant` is required (one of 1a, 1b, 1c, 2a)");this._config={...e,entities:e.entities??{}},this._dataByRange={},this.sel=null,this.showDevices=!1,this.range="today",this._loadRange(this.range)}getCardSize(){return"2a"===this._config?.variant?6:"1a"===this._config?.variant?5:3}connectedCallback(){super.connectedCallback(),this._config&&this._loadRange(this.range),this._refreshTimer=setInterval(()=>this._loadRange(this.range,!0),3e5)}disconnectedCallback(){super.disconnectedCallback(),this._refreshTimer&&clearInterval(this._refreshTimer)}updated(e){e.has("hass")&&this.hass&&this._config&&!this._dataByRange[this.range]&&this._loadRange(this.range)}setRange(e){this.range!==e&&(this.range=e,this.sel=null,this._loadRange(e))}setMode(e){this.mode=e}setSel(e){this.sel=e}toggleDevices(){this.showDevices=!this.showDevices}async _loadRange(e,t=!1){if(!this.hass||!this._config)return;if(!t&&this._dataByRange[e])return;const i=this._config.entities,r=function(e,t=new Date){if("today"===e){const e=new Date(t);e.setHours(0,0,0,0);const i=new Date(e);return i.setDate(i.getDate()+1),{start:e,end:i,period:"hour"}}if("week"===e){const e=(t.getDay()+6)%7,i=new Date(t);i.setHours(0,0,0,0),i.setDate(i.getDate()-e);const r=new Date(i);return r.setDate(r.getDate()+7),{start:i,end:r,period:"day"}}return{start:new Date(t.getFullYear(),t.getMonth(),1),end:new Date(t.getFullYear(),t.getMonth()+1,1),period:"day"}}(e),s=function(e){const t=e.end.getTime()-e.start.getTime();return{start:new Date(e.start.getTime()-t),end:new Date(e.start.getTime()),period:e.period}}(r),o=[i.solar_energy,i.grid_import_energy,i.grid_export_energy],n=++this._fetchToken;this.loading=!0;const[a,l]=await Promise.all([st(this.hass,o,r),st(this.hass,o,s)]);if(n!==this._fetchToken)return;const d=function(e,t,i,r,s,o="en-US"){const n=new Map;for(const e of i){const i=new Date(e.start);n.set(nt(i,t.period),(n.get(nt(i,t.period))||0)+e.value)}const a=new Map;for(const e of r){const i=new Date(e.start);a.set(nt(i,t.period),(a.get(nt(i,t.period))||0)+e.value)}const l=new Map;for(const e of s){const i=new Date(e.start);l.set(nt(i,t.period),(l.get(nt(i,t.period))||0)+e.value)}const d=[],c=new Date(t.start);for(;c<t.end;){const i=nt(c,t.period),r=n.get(i)||0,s=l.get(i)||0,p=Math.max(0,r-s),h=a.get(i)||0;d.push({label:at(e,c,o),solar:p,grid:h}),"hour"===t.period?c.setHours(c.getHours()+1):c.setDate(c.getDate()+1)}return d}(e,r,i.solar_energy&&a[i.solar_energy]||[],i.grid_import_energy&&a[i.grid_import_energy]||[],i.grid_export_energy&&a[i.grid_export_energy]||[],this.hass.locale?.language),c=ot(i.solar_energy?a[i.solar_energy]:void 0),p=ot(i.grid_import_energy?a[i.grid_import_energy]:void 0),h=ot(i.grid_export_energy?a[i.grid_export_energy]:void 0),g=Math.max(0,c-h),f=ot(i.solar_energy?l[i.solar_energy]:void 0),y=ot(i.grid_import_energy?l[i.grid_import_energy]:void 0),u=ot(i.grid_export_energy?l[i.grid_export_energy]:void 0),v={rows:d,solarUsed:g,gridImported:p,exported:h,totalKwh:g+p,prevTotalKwh:Math.max(0,f-u)+y};if(this._config.devices?.length){const e=this._config.devices.map(e=>e.entity),t=await st(this.hass,e,r);if(n!==this._fetchToken)return;v.devices=this._config.devices.map(e=>({name:e.name,color:e.color,entity:e.entity,kwh:ot(t[e.entity])}))}this._dataByRange={...this._dataByRange,[e]:v},this.loading=!1}render(){if(!this._config)return L``;const e=this._config.variant;let t;switch(e){case"1a":t=function(e){const t=e.rangeData,i=e.mode,r=t?.rows??[],s=Math.max(1e-6,...r.map(e=>e.solar+e.grid)),o=We(e.config),n=Le(e.config),a=t?.gridImported??0,l=t?.solarUsed??0,d=t?.exported??0,c=t?.totalKwh??0,p=t?.prevTotalKwh??0,h=a*o,g=p>0?Math.round((c-p)/p*100):0,f=c>0?Math.round(l/c*100):0,y=e.sel,u=null!==y?r[y]:void 0,v=u?{label:"today"===e.range?`${u.label}:00`:u.label,headline:"cost"===i?`${qe(e.config,u.grid*o)} from grid`:`${Ye(u.solar+u.grid)} used`,detail:`${Ye(u.solar)} solar · ${Ye(u.grid)} grid`}:null,x=null!==y&&r.length?(y+.5)/r.length*100+"%":"50%",$=t=>{if(!r.length)return"";const i=r[t].label;return"today"===e.range?`${i}:00`:i},m=t?.devices??[],w=Math.max(1e-6,...m.map(e=>e.kwh));return L`
     <div style="display:flex;flex-direction:column;gap:16.8px">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16.8px">
         <div style="display:flex;flex-direction:column;gap:8.4px">
@@ -153,7 +153,7 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
             Energy spend · ${Ke[e.range]}
           </div>
           <div style="display:flex;align-items:baseline;gap:8.4px">
-            <div style="font-size:44px;font-weight:500;line-height:1;letter-spacing:-0.02em;color:${xe}">
+            <div style="font-size:44px;font-weight:500;line-height:1;letter-spacing:-0.02em;color:${ve}">
               ${"cost"===i?qe(e.config,h):Ye(c)}
             </div>
             <div style="font-size:13px;color:${$e}">
@@ -171,7 +171,7 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
                 <button
                   type="button"
                   @click=${()=>e.setRange(t)}
-                  style="border:0;cursor:pointer;font-family:inherit;font-size:12px;font-weight:500;padding:5.6px 11.2px;border-radius:6px;background:${e.range===t?"#3a3d4d":"transparent"};color:${e.range===t?xe:$e}"
+                  style="border:0;cursor:pointer;font-family:inherit;font-size:12px;font-weight:500;padding:5.6px 11.2px;border-radius:6px;background:${e.range===t?"#3a3d4d":"transparent"};color:${e.range===t?ve:$e}"
                 >
                   ${t[0].toUpperCase()}${t.slice(1)}
                 </button>
@@ -181,14 +181,14 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
             <button
               type="button"
               @click=${()=>e.setMode("cost")}
-              style="border:0;cursor:pointer;font-family:inherit;font-size:12px;font-weight:500;padding:5.6px 11.2px;border-radius:6px;background:${"cost"===i?"#3a3d4d":"transparent"};color:${"cost"===i?xe:$e}"
+              style="border:0;cursor:pointer;font-family:inherit;font-size:12px;font-weight:500;padding:5.6px 11.2px;border-radius:6px;background:${"cost"===i?"#3a3d4d":"transparent"};color:${"cost"===i?ve:$e}"
             >
               Cost
             </button>
             <button
               type="button"
               @click=${()=>e.setMode("kwh")}
-              style="border:0;cursor:pointer;font-family:inherit;font-size:12px;font-weight:500;padding:5.6px 11.2px;border-radius:6px;background:${"kwh"===i?"#3a3d4d":"transparent"};color:${"kwh"===i?xe:$e}"
+              style="border:0;cursor:pointer;font-family:inherit;font-size:12px;font-weight:500;padding:5.6px 11.2px;border-radius:6px;background:${"kwh"===i?"#3a3d4d":"transparent"};color:${"kwh"===i?ve:$e}"
             >
               kWh
             </button>
@@ -209,13 +209,13 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
               <div style="width:100%;height:2px;border-radius:0 0 2px 2px;background:${y===i?ye:"transparent"}"></div>
             </button>
           `})}
-        ${x?L`
+        ${v?L`
               <div
-                style="position:absolute;top:0;left:${v};transform:translateX(-50%);background:#2c2f3d;box-shadow:0 0 0 1px ${we},0 6px 18px rgba(0,0,0,0.55);border-radius:8px;padding:8.4px 11.2px;display:flex;flex-direction:column;gap:2.8px;white-space:nowrap;pointer-events:none"
+                style="position:absolute;top:0;left:${x};transform:translateX(-50%);background:#2c2f3d;box-shadow:0 0 0 1px ${we},0 6px 18px rgba(0,0,0,0.55);border-radius:8px;padding:8.4px 11.2px;display:flex;flex-direction:column;gap:2.8px;white-space:nowrap;pointer-events:none"
               >
-                <div style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:${$e}">${x.label}</div>
-                <div style="font-size:15px;font-weight:500;color:${xe}">${x.headline}</div>
-                <div style="font-size:11px;color:${ve}">${x.detail}</div>
+                <div style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:${$e}">${v.label}</div>
+                <div style="font-size:15px;font-weight:500;color:${ve}">${v.headline}</div>
+                <div style="font-size:11px;color:${xe}">${v.detail}</div>
               </div>
             `:V}
       </div>
@@ -276,7 +276,7 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
                   <div style="display:flex;flex-direction:column;gap:8.4px;padding-top:2.8px">
                     ${m.map(t=>L`
                         <div style="display:grid;grid-template-columns:132px 1fr 84px;align-items:center;gap:11.2px">
-                          <div style="font-size:13px;color:${ve}">${t.name}</div>
+                          <div style="font-size:13px;color:${xe}">${t.name}</div>
                           <div style="height:6px;border-radius:3px;background:#1b1d29">
                             <div style="height:100%;border-radius:3px;background:${t.color||ye};width:${t.kwh/w*100}%"></div>
                           </div>
@@ -293,32 +293,32 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
     <div style="display:flex;flex-direction:column;gap:16.8px">
       <div style="display:flex;align-items:center;justify-content:space-between">
         <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:${$e}">Right now</div>
-        <div style="display:flex;align-items:center;gap:5.6px;font-size:11px;color:${ve}">
+        <div style="display:flex;align-items:center;gap:5.6px;font-size:11px;color:${xe}">
           <span style="width:6px;height:6px;border-radius:50%;background:${ye};box-shadow:0 0 8px ${ye}"></span>live
         </div>
       </div>
 
       <div style="display:flex;align-items:baseline;gap:8.4px">
-        <div style="font-size:40px;font-weight:500;line-height:1;letter-spacing:-0.02em;color:${xe}">${t.load.toFixed(2)}</div>
+        <div style="font-size:40px;font-weight:500;line-height:1;letter-spacing:-0.02em;color:${ve}">${t.load.toFixed(2)}</div>
         <div style="font-size:15px;color:${$e}">kW drawn</div>
       </div>
-      <div style="font-size:13px;color:${ve}">
-        ${s>=0?L`Costing <span style="color:${xe}">${qe(e.config,s)}/h</span> at the current tariff`:L`Earning <span style="color:${xe}">${qe(e.config,-s)}/h</span> on export`}
+      <div style="font-size:13px;color:${xe}">
+        ${s>=0?L`Costing <span style="color:${ve}">${qe(e.config,s)}/h</span> at the current tariff`:L`Earning <span style="color:${ve}">${qe(e.config,-s)}/h</span> on export`}
       </div>
 
       <div style="display:flex;flex-direction:column;gap:11.2px;padding:16.8px 0;border-top:1px solid ${ue};border-bottom:1px solid ${ue}">
         <div style="display:grid;grid-template-columns:92px 1fr 66px;align-items:center;gap:11.2px">
-          <div style="font-size:13px;color:${ve}">Solar</div>
+          <div style="font-size:13px;color:${xe}">Solar</div>
           <div style="height:6px;border-radius:3px;background:#1b1d29"><div style="height:100%;width:${t.pv/o*100}%;border-radius:3px;background:${Ae}"></div></div>
           <div style="font-size:13px;text-align:right;color:${fe};font-variant-numeric:tabular-nums">${Ve(t.pv)}</div>
         </div>
         <div style="display:grid;grid-template-columns:92px 1fr 66px;align-items:center;gap:11.2px">
-          <div style="font-size:13px;color:${ve}">Grid</div>
+          <div style="font-size:13px;color:${xe}">Grid</div>
           <div style="height:6px;border-radius:3px;background:#1b1d29"><div style="height:100%;width:${Math.max(t.imp,t.exp)/o*100}%;border-radius:3px;background:${me}"></div></div>
           <div style="font-size:13px;text-align:right;color:${t.imp>.01||t.exp>.01?fe:me};font-variant-numeric:tabular-nums">${n}</div>
         </div>
         <div style="display:grid;grid-template-columns:92px 1fr 66px;align-items:center;gap:11.2px">
-          <div style="font-size:13px;color:${ve}">Battery</div>
+          <div style="font-size:13px;color:${xe}">Battery</div>
           <div style="height:6px;border-radius:3px;background:#1b1d29"><div style="height:100%;width:${Math.max(t.charge,t.discharge)/o*100}%;border-radius:3px;background:${ye}"></div></div>
           <div style="font-size:13px;text-align:right;color:${t.charge>.01||t.discharge>.01?_e:me};font-variant-numeric:tabular-nums">${a}</div>
         </div>
@@ -332,7 +332,7 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
                   <circle cx="42" cy="42" r="36" fill="none" stroke="${ye}" stroke-width="7" stroke-linecap="round" stroke-dasharray="${d}"></circle>
                 </svg>
                 <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px">
-                  <div style="font-size:18px;font-weight:500;color:${xe}">${Math.round(l)}%</div>
+                  <div style="font-size:18px;font-weight:500;color:${ve}">${Math.round(l)}%</div>
                   <div style="font-size:10px;color:${$e}">battery</div>
                 </div>
               </div>
@@ -346,20 +346,20 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
       ${void 0!==y?L`
             <div style="display:flex;align-items:baseline;justify-content:space-between">
               <div style="font-size:12px;color:${$e}">Today so far</div>
-              <div style="font-size:15px;font-weight:500;color:${xe}">
+              <div style="font-size:15px;font-weight:500;color:${ve}">
                 ${qe(e.config,y)} <span style="font-size:12px;font-weight:400;color:${$e}">· ${Ye(u??0)}</span>
               </div>
             </div>
           `:V}
     </div>
-  `}(this);break;case"1c":t=function(e){const t=e.rangeData,i=We(e.config),r=Le(e.config),s=t?.gridImported??0,o=t?.exported??0,n=t?.solarUsed??0,a=t?.totalKwh??0,l=t?.prevTotalKwh??0,d=s*i,c=l>0?Math.round((a-l)/l*100):0,p=a>0?Math.round(n/a*100):0,h=t?.rows??[],g=Math.max(1e-6,...h.map(e=>e.solar+e.grid)),f=h.map(e=>({h:Math.max(3,(e.solar+e.grid)/g*52),color:e.grid>e.solar?me:Ae})),y=Je(e.config,e.hass),u=y.soc,x=y.charge>.01?"charging":y.discharge>.01?"discharging":"idle";return L`
+  `}(this);break;case"1c":t=function(e){const t=e.rangeData,i=We(e.config),r=Le(e.config),s=t?.gridImported??0,o=t?.exported??0,n=t?.solarUsed??0,a=t?.totalKwh??0,l=t?.prevTotalKwh??0,d=s*i,c=l>0?Math.round((a-l)/l*100):0,p=a>0?Math.round(n/a*100):0,h=t?.rows??[],g=Math.max(1e-6,...h.map(e=>e.solar+e.grid)),f=h.map(e=>({h:Math.max(3,(e.solar+e.grid)/g*52),color:e.grid>e.solar?me:Ae})),y=Je(e.config,e.hass),u=y.soc,v=y.charge>.01?"charging":y.discharge>.01?"discharging":"idle";return L`
     <div style="display:flex;flex-direction:column;gap:16.8px">
       <div style="display:flex;align-items:center;justify-content:space-between">
         <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:${$e}">Today</div>
         <div style="font-size:11px;color:${me}">${e.config.currency??"$"}${i.toFixed(2)}/kWh</div>
       </div>
       <div style="display:flex;flex-direction:column;gap:4px">
-        <div style="font-size:40px;font-weight:500;line-height:1;letter-spacing:-0.02em;color:${xe}">${qe(e.config,d)}</div>
+        <div style="font-size:40px;font-weight:500;line-height:1;letter-spacing:-0.02em;color:${ve}">${qe(e.config,d)}</div>
         <div style="font-size:12px;color:${$e}">
           <span style="color:${_e}">${c>0?"+":""}${c}%</span> vs. yesterday · ${Ye(a)}
         </div>
@@ -375,7 +375,7 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
         </div>
         ${void 0!==u?L`
               <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px">
-                <span style="color:${$e}">Battery</span><span style="color:${fe}">${Math.round(u)}% · ${x}</span>
+                <span style="color:${$e}">Battery</span><span style="color:${fe}">${Math.round(u)}% · ${v}</span>
               </div>
             `:V}
         <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px">
@@ -387,15 +387,15 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
     <div style="display:flex;flex-direction:column;gap:16.8px">
       <div style="display:flex;flex-direction:column;gap:4px">
         <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:${$e}">Energy flow</div>
-        <div style="font-size:13px;color:${ve}">${n}</div>
+        <div style="font-size:13px;color:${xe}">${n}</div>
       </div>
 
       <div style="overflow-x:auto;overflow-y:hidden">
       <div
-        style="display:grid;grid-template-columns:168px 84px 168px 84px 168px;grid-template-rows:150px 84px 168px 84px 150px;justify-content:center;align-items:start;padding:5.6px 0;width:672px;max-width:none;margin:0 auto"
+        style="display:grid;grid-template-columns:25% 12.5% 25% 12.5% 25%;grid-template-rows:132px 74px 148px 74px 132px;justify-content:center;align-items:start;padding:5.6px 0;width:100%;margin:0 auto"
       >
-        <div style="grid-column:3;grid-row:1;align-self:end;display:flex;flex-direction:column-reverse;align-items:center;gap:4px">
-          <svg viewBox="12 14 116 116" style="width:96px;height:96px;overflow:visible">
+        <div style="grid-column:3;grid-row:1;align-self:end;display:flex;flex-direction:column-reverse;align-items:center;gap:4px;min-width:0">
+          <svg viewBox="12 14 116 116" style="width:57%;height:auto;overflow:visible">
             <circle cx="68" cy="70" r="52" fill="${ze}" stroke="${Se}" stroke-width="3"></circle>
             <circle cx="68" cy="48" r="8" fill="none" stroke="${Ee}" stroke-width="2"></circle>
             <line x1="68" y1="35" x2="68" y2="31" stroke="${Ee}" stroke-width="1.8" stroke-linecap="round"></line>
@@ -411,18 +411,18 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
             <text x="112" y="106" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Inter, sans-serif">PV</text>
           </svg>
           <div style="font-size:11px;color:${me}">${t.pv>.02?`${(e=>Ze(e,t.supply))(t.pv)} of supply`:"no production"}</div>
-          <div style="font-size:20px;font-weight:500;color:${xe};font-variant-numeric:tabular-nums;line-height:1.1">${Ve(t.pv)}</div>
+          <div style="font-size:20px;font-weight:500;color:${ve};font-variant-numeric:tabular-nums;line-height:1.1">${Ve(t.pv)}</div>
           <div style="font-size:12px;font-weight:500;color:${Ee}">Solar PV</div>
         </div>
 
-        <div style="grid-column:3;grid-row:2;height:84px;position:relative;display:flex;justify-content:center">
+        <div style="grid-column:3;grid-row:2;height:74px;position:relative;display:flex;justify-content:center">
           <div style="width:2px;height:100%;background:linear-gradient(180deg, transparent, ${i.line} 22%, ${i.line} 78%, transparent)"></div>
           ${rt(i,"v")}
           <div style="position:absolute;left:50%;top:50%;margin-left:14px;transform:translateY(-50%);font-size:11px;color:${$e};font-variant-numeric:tabular-nums;white-space:nowrap">${i.tag}</div>
         </div>
 
-        <div style="grid-column:1;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px">
-          <svg viewBox="148 14 116 116" style="width:96px;height:96px;margin-top:6px;overflow:visible">
+        <div style="grid-column:1;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
+          <svg viewBox="148 14 116 116" style="width:57%;height:auto;margin-top:6px;overflow:visible">
             <circle cx="204" cy="70" r="52" fill="${De}" stroke="${Ce}" stroke-width="3"></circle>
             <g fill="none" stroke="${Me}" stroke-width="2" stroke-linecap="round">
               <line x1="192" y1="94" x2="192" y2="60"></line>
@@ -442,18 +442,18 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
             <text x="248" y="106" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Inter, sans-serif">AC</text>
           </svg>
           <div style="font-size:12px;font-weight:500;color:#b5d4f4">Grid</div>
-          <div style="font-size:20px;font-weight:500;color:${xe};font-variant-numeric:tabular-nums;line-height:1.1">${d}</div>
+          <div style="font-size:20px;font-weight:500;color:${ve};font-variant-numeric:tabular-nums;line-height:1.1">${d}</div>
           <div style="font-size:11px;color:${me}">${c}</div>
         </div>
 
-        <div style="grid-column:2;grid-row:3;height:108px;position:relative;display:flex;align-items:center">
+        <div style="grid-column:2;grid-row:3;height:95px;position:relative;display:flex;align-items:center">
           <div style="height:2px;width:100%;background:linear-gradient(90deg, transparent, ${r.line} 22%, ${r.line} 78%, transparent)"></div>
           ${rt(r,"h")}
           <div style="position:absolute;left:50%;top:50%;margin-top:11px;transform:translateX(-50%);font-size:11px;color:${$e};font-variant-numeric:tabular-nums;white-space:nowrap">${r.tag}</div>
         </div>
 
-        <div style="grid-column:3;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px">
-          <svg viewBox="278 8 132 132" style="width:108px;height:108px;overflow:visible">
+        <div style="grid-column:3;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
+          <svg viewBox="278 8 132 132" style="width:64%;height:auto;overflow:visible">
             <circle cx="340" cy="70" r="58" fill="${Te}" stroke="${Pe}" stroke-width="3"></circle>
             <rect x="308" y="54" width="64" height="34" rx="6" fill="none" stroke="${Re}" stroke-width="2"></rect>
             <polyline points="315,80 315,64 323,64 323,80 329,80" fill="none" stroke="${Re}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
@@ -463,18 +463,18 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
             <text x="392" y="110" font-size="8" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Inter, sans-serif">INV</text>
           </svg>
           <div style="font-size:12px;font-weight:500;color:#9fe1cb">Hybrid inverter</div>
-          <div style="font-size:20px;font-weight:500;color:${xe};font-variant-numeric:tabular-nums;line-height:1.1">${Ve(t.supply)}</div>
+          <div style="font-size:20px;font-weight:500;color:${ve};font-variant-numeric:tabular-nums;line-height:1.1">${Ve(t.supply)}</div>
           <div style="font-size:11px;color:${me}">throughput</div>
         </div>
 
-        <div style="grid-column:4;grid-row:3;height:108px;position:relative;display:flex;align-items:center">
+        <div style="grid-column:4;grid-row:3;height:95px;position:relative;display:flex;align-items:center">
           <div style="height:2px;width:100%;background:linear-gradient(90deg, transparent, ${s.line} 22%, ${s.line} 78%, transparent)"></div>
           ${rt(s,"h")}
           <div style="position:absolute;left:50%;top:50%;margin-top:11px;transform:translateX(-50%);font-size:11px;color:${$e};font-variant-numeric:tabular-nums;white-space:nowrap">${s.tag}</div>
         </div>
 
-        <div style="grid-column:5;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px">
-          <svg viewBox="420 14 116 116" style="width:96px;height:96px;margin-top:6px;overflow:visible">
+        <div style="grid-column:5;grid-row:3;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
+          <svg viewBox="420 14 116 116" style="width:57%;height:auto;margin-top:6px;overflow:visible">
             <circle cx="476" cy="70" r="52" fill="${Oe}" stroke="${Ue}" stroke-width="3"></circle>
             <polygon points="476,46 500,60 500,90 452,90 452,60" fill="none" stroke="${He}" stroke-width="2" stroke-linejoin="round"></polygon>
             <rect x="468" y="72" width="16" height="18" rx="2" fill="none" stroke="${He}" stroke-width="1.8"></rect>
@@ -488,18 +488,18 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
             <text x="520" y="106" font-size="8" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Inter, sans-serif">~W</text>
           </svg>
           <div style="font-size:12px;font-weight:500;color:#c0dd97">House load</div>
-          <div style="font-size:20px;font-weight:500;color:${xe};font-variant-numeric:tabular-nums;line-height:1.1">${Ve(t.load)}</div>
+          <div style="font-size:20px;font-weight:500;color:${ve};font-variant-numeric:tabular-nums;line-height:1.1">${Ve(t.load)}</div>
           <div style="font-size:11px;color:${me}">current draw</div>
         </div>
 
-        <div style="grid-column:3;grid-row:4;height:84px;position:relative;display:flex;justify-content:center">
+        <div style="grid-column:3;grid-row:4;height:74px;position:relative;display:flex;justify-content:center">
           <div style="width:2px;height:100%;background:linear-gradient(180deg, transparent, ${o.line} 22%, ${o.line} 78%, transparent)"></div>
           ${rt(o,"v")}
           <div style="position:absolute;left:50%;top:50%;margin-left:14px;transform:translateY(-50%);font-size:11px;color:${$e};font-variant-numeric:tabular-nums;white-space:nowrap">${o.tag}</div>
         </div>
 
-        <div style="grid-column:3;grid-row:5;display:flex;flex-direction:column;align-items:center;gap:4px">
-          <svg viewBox="556 14 116 116" style="width:96px;height:96px;overflow:visible">
+        <div style="grid-column:3;grid-row:5;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
+          <svg viewBox="556 14 116 116" style="width:57%;height:auto;overflow:visible">
             <circle cx="612" cy="70" r="52" fill="${Be}" stroke="${Ne}" stroke-width="3"></circle>
             <rect x="588" y="60" width="38" height="22" rx="4" fill="none" stroke="${je}" stroke-width="2"></rect>
             <rect x="626" y="66" width="6" height="10" rx="2.5" fill="none" stroke="${je}" stroke-width="1.8"></rect>
@@ -514,11 +514,11 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
             <div style="font-size:12px;font-weight:500;color:#f4c0d1">Battery</div>
             <div style="font-size:12px;color:${je};font-variant-numeric:tabular-nums">${Math.round(l)}%</div>
           </div>
-          <div style="width:108px;height:4px;border-radius:2px;background:${be};overflow:hidden">
+          <div style="width:64%;height:4px;border-radius:2px;background:${be};overflow:hidden">
             <div style="height:100%;border-radius:2px;background:${Ne};width:${l}%"></div>
           </div>
           <div style="display:flex;align-items:baseline;gap:5.6px">
-            <div style="font-size:20px;font-weight:500;color:${xe};font-variant-numeric:tabular-nums;line-height:1.1">${p}</div>
+            <div style="font-size:20px;font-weight:500;color:${ve};font-variant-numeric:tabular-nums;line-height:1.1">${p}</div>
             <div style="font-size:11px;color:${me}">${h}</div>
           </div>
         </div>
