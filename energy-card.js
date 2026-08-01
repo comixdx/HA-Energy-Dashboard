@@ -390,8 +390,9 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
         <div style="font-size:13px;color:${ve}">${n}</div>
       </div>
 
+      <div style="overflow-x:auto;overflow-y:hidden">
       <div
-        style="display:grid;grid-template-columns:168px 84px 168px 84px 168px;grid-template-rows:150px 84px 168px 84px 150px;justify-content:center;align-items:start;padding:5.6px 0"
+        style="display:grid;grid-template-columns:168px 84px 168px 84px 168px;grid-template-rows:150px 84px 168px 84px 150px;justify-content:center;align-items:start;padding:5.6px 0;width:672px;max-width:none;margin:0 auto"
       >
         <div style="grid-column:3;grid-row:1;align-self:end;display:flex;flex-direction:column-reverse;align-items:center;gap:4px">
           <svg viewBox="12 14 116 116" style="width:96px;height:96px;overflow:visible">
@@ -521,6 +522,7 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
             <div style="font-size:11px;color:${me}">${h}</div>
           </div>
         </div>
+      </div>
       </div>
 
       <div style="height:1px;background:linear-gradient(90deg, transparent, ${ue} 48px, ${ue} calc(100% - 48px), transparent)"></div>
