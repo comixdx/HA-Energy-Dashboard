@@ -7,4 +7,4 @@ export const VARIANT_LABELS: Record<Variant, string> = {
   "2a": "Energy flow — PV · grid · inverter · battery · load",
 };
 
-export const CARD_VERSION = "0.1.5";
+export const CARD_VERSION = "0.1.6";
