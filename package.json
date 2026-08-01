@@ -1,0 +1,25 @@
+{
+  "name": "energy-card",
+  "version": "0.1.0",
+  "description": "Home Assistant Lovelace energy dashboard card (Nocturne dark theme) — wide panel, live flow tile, compact tile and animated PV/grid/inverter/battery/load diagram.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "custom-card-helpers": "^1.9.0",
+    "lit": "^3.1.4"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "rollup": "^4.18.0",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.3"
+  }
+}

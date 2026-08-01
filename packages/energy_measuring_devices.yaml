@@ -1,0 +1,143 @@
+# =============================================================================
+# Energy Measuring Devices — sensor package
+#
+# Turns raw POWER sensors (W) from your meters/inverters/plugs into the
+# cumulative ENERGY sensors (kWh) that Home Assistant's Energy dashboard and
+# Lovelace energy cards require (device_class: energy, state_class: total).
+#
+# HOW TO USE
+#   1. Enable packages once in configuration.yaml:
+#        homeassistant:
+#          packages: !include_dir_named packages
+#   2. Replace every `sensor.REPLACE_*` below with your real power-sensor
+#      entity IDs (Developer Tools > States to find them).
+#   3. If a source (e.g. your solar inverter) already reports a cumulative
+#      lifetime/daily kWh sensor natively, skip the `integration` block for
+#      it and use that native sensor directly in Settings > Energy instead.
+#   4. Duplicate the "ADDITIONAL DEVICE" block for every extra smart plug /
+#      appliance monitor you own, renaming REPLACE_device_n.
+#   5. Restart Home Assistant, then go to Settings > Dashboards > Energy and
+#      add the resulting `sensor.*_energy` entities (see README.md).
+# =============================================================================
+
+sensor:
+  # ---------------------------------------------------------------------
+  # GRID — import (consumption from utility) and export (sent back to grid)
+  # ---------------------------------------------------------------------
+  - platform: integration
+    source: sensor.REPLACE_grid_import_power   # e.g. Shelly EM / Sense / IoTaWatt grid power (W)
+    name: Grid Import Energy
+    unique_id: grid_import_energy
+    method: left
+    unit_prefix: k
+    round: 3
+
+  - platform: integration
+    source: sensor.REPLACE_grid_export_power   # power flowing back to the grid (W)
+    name: Grid Export Energy
+    unique_id: grid_export_energy
+    method: left
+    unit_prefix: k
+    round: 3
+
+  # ---------------------------------------------------------------------
+  # SOLAR PV INVERTER(S) — duplicate this block per inverter/string if you
+  # have more than one, renaming the unique_id/name (e.g. _2, _east, _west)
+  # ---------------------------------------------------------------------
+  - platform: integration
+    source: sensor.REPLACE_solar_power         # inverter instantaneous output power (W)
+    name: Solar Production Energy
+    unique_id: solar_production_energy
+    method: left
+    unit_prefix: k
+    round: 3
+
+  # ---------------------------------------------------------------------
+  # ADDITIONAL DEVICE — duplicate for each smart plug / appliance monitor.
+  # Rename REPLACE_device_1 consistently across the block.
+  # ---------------------------------------------------------------------
+  - platform: integration
+    source: sensor.REPLACE_device_1_power      # e.g. sensor.ev_charger_power
+    name: Device 1 Energy
+    unique_id: device_1_energy
+    method: left
+    unit_prefix: k
+    round: 3
+
+  - platform: integration
+    source: sensor.REPLACE_device_2_power      # e.g. sensor.water_heater_power
+    name: Device 2 Energy
+    unique_id: device_2_energy
+    method: left
+    unit_prefix: k
+    round: 3
+
+  - platform: integration
+    source: sensor.REPLACE_device_3_power      # e.g. sensor.hvac_power
+    name: Device 3 Energy
+    unique_id: device_3_energy
+    method: left
+    unit_prefix: k
+    round: 3
+
+template:
+  - sensor:
+      # Net home power draw right now: grid + solar - export, informational.
+      - name: Home Total Power
+        unique_id: home_total_power
+        unit_of_measurement: "W"
+        device_class: power
+        state_class: measurement
+        state: >
+          {% set grid = states('sensor.REPLACE_grid_import_power') | float(0) %}
+          {% set solar = states('sensor.REPLACE_solar_power') | float(0) %}
+          {% set export = states('sensor.REPLACE_grid_export_power') | float(0) %}
+          {{ (grid + solar - export) | round(0) }}
+
+      # Share of home consumption currently covered by solar (0-100%).
+      - name: Solar Self Consumption
+        unique_id: solar_self_consumption
+        unit_of_measurement: "%"
+        state_class: measurement
+        state: >
+          {% set solar = states('sensor.REPLACE_solar_power') | float(0) %}
+          {% set home = states('sensor.home_total_power') | float(0) %}
+          {% if home > 0 %}
+            {{ min(100, (solar / home * 100)) | round(1) }}
+          {% else %}
+            0
+          {% endif %}
+
+# ---------------------------------------------------------------------------
+# UTILITY METERS — daily/monthly/yearly resettable counters, useful for cost
+# tracking cards and tariff automations. Add one block per *_energy sensor
+# you want a reset cycle for.
+# ---------------------------------------------------------------------------
+utility_meter:
+  grid_import_daily:
+    source: sensor.grid_import_energy
+    cycle: daily
+  grid_import_monthly:
+    source: sensor.grid_import_energy
+    cycle: monthly
+  grid_export_daily:
+    source: sensor.grid_export_energy
+    cycle: daily
+  grid_export_monthly:
+    source: sensor.grid_export_energy
+    cycle: monthly
+  solar_production_daily:
+    source: sensor.solar_production_energy
+    cycle: daily
+  solar_production_monthly:
+    source: sensor.solar_production_energy
+    cycle: monthly
+  device_1_daily:
+    source: sensor.device_1_energy
+    cycle: daily
+  device_2_daily:
+    source: sensor.device_2_energy
+    cycle: daily
+  device_3_daily:
+    source: sensor.device_3_energy
+    cycle: daily
