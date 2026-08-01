@@ -190,14 +190,14 @@ export function renderFlowDiagram(host: CardHost): TemplateResult {
             <circle cx="656" cy="102" r="11" fill="${C.batteryStrong}"></circle>
             <text x="656" y="106" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Inter, sans-serif">DC</text>
           </svg>
-          <div style="display:flex;align-items:baseline;gap:5.6px">
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:5.6px">
             <div style="font-size:12px;font-weight:500;color:#f4c0d1">Battery</div>
             <div style="font-size:12px;color:${C.batterySoft};font-variant-numeric:tabular-nums">${Math.round(soc)}%</div>
           </div>
           <div style="width:64%;height:4px;border-radius:2px;background:${C.neutral800};overflow:hidden">
             <div style="height:100%;border-radius:2px;background:${C.batteryStrong};width:${soc}%"></div>
           </div>
-          <div style="display:flex;align-items:baseline;gap:5.6px">
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:5.6px">
             <div style="font-size:20px;font-weight:500;color:${C.neutral100};font-variant-numeric:tabular-nums;line-height:1.1">${battVal}</div>
             <div style="font-size:11px;color:${C.neutral600}">${battSub}</div>
           </div>

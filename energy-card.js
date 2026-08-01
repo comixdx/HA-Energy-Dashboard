@@ -510,14 +510,14 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
             <circle cx="656" cy="102" r="11" fill="${Ne}"></circle>
             <text x="656" y="106" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Inter, sans-serif">DC</text>
           </svg>
-          <div style="display:flex;align-items:baseline;gap:5.6px">
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:5.6px">
             <div style="font-size:12px;font-weight:500;color:#f4c0d1">Battery</div>
             <div style="font-size:12px;color:${je};font-variant-numeric:tabular-nums">${Math.round(l)}%</div>
           </div>
           <div style="width:64%;height:4px;border-radius:2px;background:${be};overflow:hidden">
             <div style="height:100%;border-radius:2px;background:${Ne};width:${l}%"></div>
           </div>
-          <div style="display:flex;align-items:baseline;gap:5.6px">
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:5.6px">
             <div style="font-size:20px;font-weight:500;color:${ve};font-variant-numeric:tabular-nums;line-height:1.1">${p}</div>
             <div style="font-size:11px;color:${me}">${h}</div>
           </div>
