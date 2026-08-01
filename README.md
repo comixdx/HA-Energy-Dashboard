@@ -112,4 +112,11 @@ Source lives under `src/`:
   layouts (1a/1b/1c/2a)
 - `stats.ts` / `flow.ts` — the HA recorder-statistics layer and the live
   power-balance math
+- `format.ts` — unit conversion and import/export rate/currency helpers
+- `host.ts` — the `CardHost` interface and range-data shape the variant
+  renderers read from
+- `types.ts` — shared config/entity types (`EnergyCardConfig`, `Variant`,
+  `Range`, …)
+- `colors.ts` / `const.ts` — the Nocturne palette tokens and small shared
+  constants (variant labels, card version)
 - `editor.ts` — the `ha-form`-based Lovelace config editor
