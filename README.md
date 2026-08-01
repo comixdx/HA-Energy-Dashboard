@@ -27,6 +27,24 @@ You can add more than one card and point them all at the same sensors — for
 example, the flow diagram (`2a`) for an at-a-glance view, plus the wide panel
 (`1a`) for the daily/weekly numbers.
 
+### What each layout looks like
+
+These are all shown with no sensors selected yet (hence the `0.00`/`—`
+placeholders) — once you pick your entities in the config editor, the
+numbers and colors come alive.
+
+**`1a` — Wide panel**
+![Wide panel variant](docs/screenshots/variant-1a-wide-panel.png)
+
+**`1b` — Live flow tile**
+![Live flow tile variant](docs/screenshots/variant-1b-live-flow-tile.png)
+
+**`1c` — Compact tile**
+![Compact tile variant](docs/screenshots/variant-1c-compact-tile.png)
+
+**`2a` — Energy flow diagram**
+![Energy flow diagram variant](docs/screenshots/variant-2a-flow-diagram.png)
+
 ## Before you start: what you need
 
 This card doesn't create any data itself — it displays sensors you already
