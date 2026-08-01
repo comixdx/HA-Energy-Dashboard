@@ -40,7 +40,7 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
     <div style="${i};background:${e.dot};animation:${e.anim}"></div>
     <div style="${i};background:${e.dot};animation:${e.anim};animation-delay:-0.55s"></div>
     <div style="${i};background:${e.dot};animation:${e.anim};animation-delay:-1.1s"></div>
-  `}async function st(e,t,i){const r=Array.from(new Set(t.filter(e=>!!e)));if(!r.length)return{};let s;try{s=await e.callWS({type:"recorder/statistics_during_period",start_time:i.start.toISOString(),end_time:i.end.toISOString(),statistic_ids:r,period:i.period,types:["change"]})}catch(e){return console.warn("[energy-card] statistics_during_period failed",e),{}}const o={};for(const e of r){const t=s[e]||[];o[e]=t.map(e=>({start:"number"==typeof e.start?e.start:new Date(e.start).getTime(),value:"number"==typeof e.change?e.change:0}))}return o}function ot(e){return e?e.reduce((e,t)=>e+(t.value||0),0):0}function nt(e,t){return"hour"===t?`${e.getFullYear()}-${e.getMonth()}-${e.getDate()}-${e.getHours()}`:`${e.getFullYear()}-${e.getMonth()}-${e.getDate()}`}function at(e,t,i){return"today"===e?String(t.getHours()).padStart(2,"0"):"week"===e?t.toLocaleDateString(i,{weekday:"short"}):t.toLocaleDateString(i,{month:"short",day:"numeric"}).replace(".","")}const lt=[{name:"variant",required:!0,selector:{select:{mode:"dropdown",options:[{value:"1a",label:"1A — Wide panel (cost headline, bars, device breakdown)"},{value:"1b",label:"1B — Live flow tile (battery ring)"},{value:"1c",label:"1C — Compact cost tile (sparkline)"},{value:"2a",label:"2A — Energy flow diagram (PV/grid/inverter/battery/load)"}]}}},{name:"title",selector:{text:{}}},{name:"entities",type:"expandable",title:"Entities",schema:[{name:"pv_power",selector:{entity:{domain:"sensor"}}},{name:"grid_power",selector:{entity:{domain:"sensor"}}},{name:"battery_power",selector:{entity:{domain:"sensor"}}},{name:"battery_soc",selector:{entity:{domain:"sensor"}}},{name:"load_power",selector:{entity:{domain:"sensor"}}},{name:"solar_energy",selector:{entity:{domain:"sensor"}}},{name:"grid_import_energy",selector:{entity:{domain:"sensor"}}},{name:"grid_export_energy",selector:{entity:{domain:"sensor"}}}]},{name:"",type:"grid",schema:[{name:"import_rate",selector:{number:{mode:"box",step:.001,min:0}}},{name:"export_rate",selector:{number:{mode:"box",step:.001,min:0}}},{name:"currency",selector:{text:{}}},{name:"power_unit",selector:{select:{mode:"dropdown",options:["W","kW"]}}},{name:"battery_capacity_kwh",selector:{number:{mode:"box",step:.1,min:0}}}]}],dt={variant:"Card layout",title:"Title (optional)",pv_power:"Solar power (W)",grid_power:"Grid power, signed: + import / − export (W)",battery_power:"Battery power, signed: + charging / − discharging (W)",battery_soc:"Battery state of charge (%)",load_power:"House load (W) — optional, derived if omitted",solar_energy:"Solar energy, cumulative (kWh)",grid_import_energy:"Grid import energy, cumulative (kWh)",grid_export_energy:"Grid export energy, cumulative (kWh)",import_rate:"Import rate (currency/kWh)",export_rate:"Export rate (currency/kWh)",currency:"Currency symbol",power_unit:"Power entity unit",battery_capacity_kwh:"Battery capacity (kWh)"};function ct(e){return dt[e.name]||e.name}let pt=class extends ae{constructor(){super(...arguments),this._valueChanged=e=>{e.stopPropagation(),this._fire(e.detail.value)}}setConfig(e){this._config=e}_fire(e){this._config=e,this.dispatchEvent(new CustomEvent("config-changed",{detail:{config:e},bubbles:!0,composed:!0}))}_addDevice(){const e=[...this._config.devices||[],{name:"New device",entity:""}];this._fire({...this._config,devices:e})}_removeDevice(e){const t=(this._config.devices||[]).filter((t,i)=>i!==e);this._fire({...this._config,devices:t})}_updateDevice(e,t){const i=(this._config.devices||[]).map((i,r)=>r===e?{...i,...t}:i);this._fire({...this._config,devices:i})}render(){if(!this._config)return L``;const e=!!customElements.get("ha-form");return L`
+  `}async function st(e,t,i){const r=Array.from(new Set(t.filter(e=>!!e)));if(!r.length)return{};let s;try{s=await e.callWS({type:"recorder/statistics_during_period",start_time:i.start.toISOString(),end_time:i.end.toISOString(),statistic_ids:r,period:i.period,types:["change"]})}catch(e){return console.warn("[energy-card] statistics_during_period failed",e),{}}const o={};for(const e of r){const t=s[e]||[];o[e]=t.map(e=>({start:"number"==typeof e.start?e.start:new Date(e.start).getTime(),value:"number"==typeof e.change?e.change:0}))}return o}function ot(e){return e?e.reduce((e,t)=>e+(t.value||0),0):0}function nt(e,t){return"hour"===t?`${e.getFullYear()}-${e.getMonth()}-${e.getDate()}-${e.getHours()}`:`${e.getFullYear()}-${e.getMonth()}-${e.getDate()}`}function at(e,t,i){return"today"===e?String(t.getHours()).padStart(2,"0"):"week"===e?t.toLocaleDateString(i,{weekday:"short"}):t.toLocaleDateString(i,{month:"short",day:"numeric"}).replace(".","")}const lt=[{name:"variant",required:!0,selector:{select:{mode:"dropdown",options:[{value:"1a",label:"1A — Wide panel (cost headline, bars, device breakdown)"},{value:"1b",label:"1B — Live flow tile (battery ring)"},{value:"1c",label:"1C — Compact cost tile (sparkline)"},{value:"2a",label:"2A — Energy flow diagram (PV/grid/inverter/battery/load)"}]}}},{name:"title",selector:{text:{}}},{name:"entities",type:"expandable",title:"Entities",schema:[{name:"pv_power",selector:{entity:{domain:"sensor"}}},{name:"grid_power",selector:{entity:{domain:"sensor"}}},{name:"battery_power",selector:{entity:{domain:"sensor"}}},{name:"battery_soc",selector:{entity:{domain:"sensor"}}},{name:"load_power",selector:{entity:{domain:"sensor"}}},{name:"solar_energy",selector:{entity:{domain:"sensor"}}},{name:"grid_import_energy",selector:{entity:{domain:"sensor"}}},{name:"grid_export_energy",selector:{entity:{domain:"sensor"}}}]},{name:"",type:"grid",schema:[{name:"import_rate",selector:{number:{mode:"box",step:.001,min:0}}},{name:"export_rate",selector:{number:{mode:"box",step:.001,min:0}}},{name:"currency",selector:{text:{}}},{name:"power_unit",selector:{select:{mode:"dropdown",options:["W","kW"]}}},{name:"battery_capacity_kwh",selector:{number:{mode:"box",step:.1,min:0}}}]}],dt={variant:"Card layout",title:"Title (optional)",pv_power:"Solar power (W)",grid_power:"Grid power, signed: + import / − export (W)",battery_power:"Battery power, signed: + charging / − discharging (W)",battery_soc:"Battery state of charge (%)",load_power:"House load (W) — optional, derived if omitted",solar_energy:"Solar energy, cumulative (kWh)",grid_import_energy:"Grid import energy, cumulative (kWh)",grid_export_energy:"Grid export energy, cumulative (kWh)",import_rate:"Import rate (currency/kWh)",export_rate:"Export rate (currency/kWh)",currency:"Currency symbol",power_unit:"Power entity unit",battery_capacity_kwh:"Battery capacity (kWh)"};function ct(e){return dt[e.name]||e.name}let pt=class extends ae{constructor(){super(...arguments),this._valueChanged=e=>{e.stopPropagation(),this._fire(e.detail.value)}}setConfig(e){this._config=e}_fire(e){this._config=e,this.dispatchEvent(new CustomEvent("config-changed",{detail:{config:e},bubbles:!0,composed:!0}))}_addDevice(){const e=[...this._config.devices||[],{name:"New device",entity:""}];this._fire({...this._config,devices:e})}_removeDevice(e){const t=(this._config.devices||[]).filter((t,i)=>i!==e);this._fire({...this._config,devices:t})}_updateDevice(e,t){const i=(this._config.devices||[]).map((i,r)=>r===e?{...i,...t}:i);this._fire({...this._config,devices:i})}render(){if(!this._config)return L``;const e=!!customElements.get("ha-form"),t=!!customElements.get("ha-selector");return L`
       ${e?L`<ha-form
             .hass=${this.hass}
             .data=${this._config}
@@ -51,19 +51,24 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
 
       <div class="devices">
         <div class="devices-title">Device breakdown (1A only, optional)</div>
-        ${(this._config.devices||[]).map((e,t)=>L`
+        ${(this._config.devices||[]).map((e,i)=>L`
             <div class="device-row">
               <input
                 .value=${e.name}
                 placeholder="Name"
-                @change=${e=>this._updateDevice(t,{name:e.target.value})}
+                @change=${e=>this._updateDevice(i,{name:e.target.value})}
               />
-              <input
-                .value=${e.entity}
-                placeholder="sensor.device_energy"
-                @change=${e=>this._updateDevice(t,{entity:e.target.value})}
-              />
-              <button type="button" title="Remove" @click=${()=>this._removeDevice(t)}>✕</button>
+              ${t?L`<ha-selector
+                    .hass=${this.hass}
+                    .selector=${{entity:{domain:"sensor"}}}
+                    .value=${e.entity}
+                    @value-changed=${e=>this._updateDevice(i,{entity:e.detail.value??""})}
+                  ></ha-selector>`:L`<input
+                    .value=${e.entity}
+                    placeholder="sensor.device_energy"
+                    @change=${e=>this._updateDevice(i,{entity:e.target.value})}
+                  />`}
+              <button type="button" title="Remove" @click=${()=>this._removeDevice(i)}>✕</button>
             </div>
           `)}
         <button type="button" class="add" @click=${()=>this._addDevice()}>+ Add device</button>
@@ -101,8 +106,13 @@ const de=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}
     .device-row {
       display: grid;
       grid-template-columns: 1fr 1.4fr auto;
+      align-items: center;
       gap: 8px;
       margin-bottom: 6px;
+    }
+    .device-row ha-selector {
+      display: block;
+      width: 100%;
     }
     input {
       font: inherit;

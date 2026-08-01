@@ -106,6 +106,7 @@ export class EnergyCardEditor extends LitElement {
   protected render(): TemplateResult {
     if (!this._config) return html``;
     const hasHaForm = !!customElements.get("ha-form");
+    const hasEntityPicker = !!customElements.get("ha-selector");
     return html`
       ${hasHaForm
         ? html`<ha-form
@@ -127,11 +128,18 @@ export class EnergyCardEditor extends LitElement {
                 placeholder="Name"
                 @change=${(e: Event) => this._updateDevice(i, { name: (e.target as HTMLInputElement).value })}
               />
-              <input
-                .value=${d.entity}
-                placeholder="sensor.device_energy"
-                @change=${(e: Event) => this._updateDevice(i, { entity: (e.target as HTMLInputElement).value })}
-              />
+              ${hasEntityPicker
+                ? html`<ha-selector
+                    .hass=${this.hass}
+                    .selector=${{ entity: { domain: "sensor" } }}
+                    .value=${d.entity}
+                    @value-changed=${(e: CustomEvent) => this._updateDevice(i, { entity: e.detail.value ?? "" })}
+                  ></ha-selector>`
+                : html`<input
+                    .value=${d.entity}
+                    placeholder="sensor.device_energy"
+                    @change=${(e: Event) => this._updateDevice(i, { entity: (e.target as HTMLInputElement).value })}
+                  />`}
               <button type="button" title="Remove" @click=${() => this._removeDevice(i)}>✕</button>
             </div>
           `
@@ -180,8 +188,13 @@ export class EnergyCardEditor extends LitElement {
     .device-row {
       display: grid;
       grid-template-columns: 1fr 1.4fr auto;
+      align-items: center;
       gap: 8px;
       margin-bottom: 6px;
+    }
+    .device-row ha-selector {
+      display: block;
+      width: 100%;
     }
     input {
       font: inherit;
